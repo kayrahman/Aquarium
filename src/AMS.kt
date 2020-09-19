@@ -19,6 +19,8 @@ fun feedThefish() {
 
     eagerExample()
 
+    dirtyProcessor()
+
 }
 
 //filter
@@ -72,4 +74,27 @@ fun fishFood(randomDay: String): Any {
 fun randomDay(): String {
 val listOfDays = listOf("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday")
     return listOfDays[Random().nextInt(7)]
+}
+
+
+//lambda
+fun updateDirty(dirty: Int,operation:(Int) -> Int):Int{
+    return operation(dirty)
+}
+
+
+fun dirtyProcessor(){
+   val dirty =  updateDirty(20,{it-> it+30
+    })
+
+    println("dirty: $dirty")
+
+    updateDirty(20) {
+        50
+    }
+
+    updateDirty(20) {it ->
+        it/50
+    }
+
 }
