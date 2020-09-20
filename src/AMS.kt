@@ -97,4 +97,16 @@ fun dirtyProcessor(){
         it/50
     }
 
+
+    fun checkDirty(dirty: Int,onComplete:(Int)-> Unit){
+      onComplete(100)
+    }
+
+
+    checkDirty(30){it->
+
+    }
+
+
+
 }
