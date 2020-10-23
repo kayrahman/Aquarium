@@ -1,5 +1,7 @@
 # Aquarium
-###Kotlin Bootcamp
+
+
+### Kotlin Bootcamp
 
 
 ### Constructors:
@@ -38,3 +40,45 @@ fun makeDecorations() {
 }
 
 data class Decorations2(val crystal:String, val wood:String, val diver:String){}
+
+
+### Enums:
+Kotlin also supports enums, which allow you to enumerate something and refer to it by name, much like in other languages. Declare an enum by prefixing the declaration with the keyword enum. A basic enum declaration only needs a list of names, but you can also define one or more fields associated with each name.
+
+- Example:
+enum class Direction(val degrees: Int) {
+    NORTH(0), SOUTH(180), EAST(90), WEST(270)
+}
+
+fun main() {
+    println(Direction.EAST.name)
+    println(Direction.EAST.ordinal)
+    println(Direction.EAST.degrees)
+}
+
+- Output :
+⇒ EAST
+2
+90
+
+
+
+
+### Sealed Class :
+A sealed class is a class that can be subclassed, but only inside the file in which it's declared. If you try to subclass the class in a different file, you get an error.
+
+- Example:
+sealed class Seal
+class SeaLion : Seal()
+class Walrus : Seal()
+
+fun matchSeal(seal: Seal): String {
+   return when(seal) {
+       is Walrus -> "walrus"
+       is SeaLion -> "sea lion"
+   }
+}
+
+sealed classes are great for returning success or error from a network API.
+
+
